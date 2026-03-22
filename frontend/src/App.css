@@ -1,0 +1,351 @@
+:root {
+    --bg-color: #f0f0f0;
+    /* Light Grey */
+    --text-color: #111111;
+    /* Black */
+    --accent-color: #ff2a2a;
+    /* Bright Red */
+    --secondary-color: #0066ff;
+    /* Bright Blue */
+    --highlight-color: #ffdb00;
+    /* Bright Yellow */
+    --error-color: #ff2a2a;
+    --border-width: 4px;
+    --shadow-offset: 6px;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Brutalistic Utilities */
+.brutal-box {
+    border: var(--border-width) solid black;
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px black;
+    background: white;
+    padding: 1.5rem;
+    transition: all 0.1s;
+}
+
+.brutal-box:active {
+    box-shadow: 0px 0px 0px 0px black;
+    transform: translate(var(--shadow-offset), var(--shadow-offset));
+}
+
+.brutal-btn {
+    background: var(--text-color);
+    color: white;
+    border: var(--border-width) solid black;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1.1rem;
+}
+
+.brutal-btn:hover {
+    background: white;
+    color: black;
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px var(--accent-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    flex: 1;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: var(--border-width) solid black;
+    background: white;
+    box-shadow: 0px 4px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    color: var(--accent-color);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-left: 2rem;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    background: var(--highlight-color);
+    color: black;
+    box-shadow: 3px 3px 0px black;
+}
+
+/* Forms */
+input {
+    border: var(--border-width) solid black;
+    padding: 1rem;
+    font-family: inherit;
+    font-size: 1.2rem;
+    width: 100%;
+    outline: none;
+    background: white;
+    transition: all 0.2s;
+}
+
+input:focus {
+    background: #fff;
+    border-color: var(--accent-color);
+    box-shadow: 4px 4px 0px var(--accent-color);
+}
+
+/* Headers */
+h1,
+h2,
+h3 {
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 4.5rem;
+    line-height: 0.9;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer {
+    border-top: var(--border-width) solid black;
+    padding: 2rem;
+    background: black;
+    color: white;
+    text-align: center;
+    margin-top: auto;
+}
+
+.score-card {
+    border: var(--border-width) solid black;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.score-high {
+    background-color: #4cd137;
+}
+
+/* Green */
+.score-medium {
+    background-color: #fbc531;
+}
+
+/* Yellow */
+.score-low {
+    background-color: #e84118;
+    color: white;
+}
+
+/* Red */
+
+.analysis-card {
+    border: var(--border-width) solid black;
+    padding: 2rem;
+    background: white;
+    line-height: 1.6;
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.user-badge {
+    border: 2px solid black;
+    padding: 0.2rem 0.5rem;
+    background: white;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Mobile phones (up to 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .navbar {
+        padding: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .nav-brand {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem !important;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .nav-links a {
+        margin-left: 0;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+        padding: 0.5rem;
+    }
+
+    .user-badge {
+        font-size: 0.8rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2.5rem !important;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    h3 {
+        font-size: 1.2rem !important;
+    }
+
+    .brutal-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+
+    .brutal-box {
+        padding: 1rem;
+    }
+
+    .score-card h1 {
+        font-size: 3.5rem !important;
+    }
+
+    input {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    /* Landing page mobile */
+    .hero-section {
+        padding: 0 1rem !important;
+        margin-top: 3rem !important;
+    }
+
+    .landing-page section {
+        padding: 2rem 1rem !important;
+    }
+}
+
+/* Tablets (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    .navbar {
+        padding: 1.2rem 1.5rem;
+    }
+
+    h1 {
+        font-size: 3.5rem !important;
+    }
+
+    .brutal-btn {
+        font-size: 1rem;
+        padding: 0.9rem 1.8rem;
+    }
+}
+
+/* Small devices - stack grid layouts */
+@media (max-width: 640px) {
+    [style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    [style*="display: flex"][style*="gap"] {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+}
